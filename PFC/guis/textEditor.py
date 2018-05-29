@@ -32,6 +32,7 @@ def openFile():
 def highlight():
     print("Highlight!")
 
+
 root = Tk()
 root.title("My Python Text Editor")
 root.minsize(width=400, height=400)
