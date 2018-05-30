@@ -30,7 +30,9 @@ def openFile():
     text.insert(0.0, t)
 
 def highlight():
-    print("Highlight!")
+    print("Highlighted")
+
+
 
 
 root = Tk()
