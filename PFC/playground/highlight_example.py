@@ -1,6 +1,7 @@
 import tkinter as tk
 
-def color_text(edit, tag, word, fg_color='black', bg_color = 'white'):
+
+def color_text(edit, tag, word, fg_color='black', bg_color='white'):
     word = word + ' '
     edit.insert('end', word)
     end_index = edit.index('end')
@@ -8,13 +9,13 @@ def color_text(edit, tag, word, fg_color='black', bg_color = 'white'):
     edit.tag_add(tag, begin_index, end_index)
     edit.tag_config(tag, foreground=fg_color, background=bg_color)
 
+
 def main():
     root = tk.Tk()
     root.geometry('600x200')
 
     edit = tk.Text(root)
     edit.pack()
-
 
     text = "Up the hill went Jack and Jill"
 
