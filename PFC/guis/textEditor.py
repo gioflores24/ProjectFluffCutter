@@ -1,7 +1,7 @@
 from tkinter import filedialog, END, messagebox, Tk, Text, Menu
 
 f = None  # this will change
-
+from utils.preprocess import getText
 
 def newFile():
     global f
@@ -28,14 +28,15 @@ def saveAs():
 
 
 def openFile():
-    file = filedialog.askopenfile(mode='r')
-    t = file.read()
+    file = filedialog.askopenfilename()
+    #t = file.read()
+    t = getText(file)
+    print(t)
     text.delete(0.0, END)
     text.insert(0.0, t)
 
 
 def highlight():
-    print("Highlighted")
     word_list = text.get('1.0', END).split()
     tags = ['tg' + str(k) for k in range(len(word_list))]
     myword = word_list[0]  # test purposes only. Will change to fit fluff cutter

@@ -12,9 +12,9 @@ def process(tokenized):
     try:
         for i in tokenized:
             words = nltk.word_tokenize(i)
-            tagged = nltk.pos_tag(words)
-            namedEnt = nltk.ne_chunk(tagged, binary=True)
-            namedEnt.draw()
+            # tagged = nltk.pos_tag(words)
+            # namedEnt = nltk.ne_chunk(tagged, binary=True)
+            # namedEnt.draw()
     except Exception as ex:
         print(str(ex))
 
