@@ -32,7 +32,7 @@ def openFile():
     file = filedialog.askopenfilename()
     #t = file.read()
     t = getText(file)
-    print(t)
+    #print(t)
     text.delete(0.0, END)
     text.insert(0.0, t)
 
@@ -41,16 +41,18 @@ def highlight():
     word_list = text.get('1.0', END).split()
     tags = ['tg' + str(k) for k in range(len(word_list))]
     selected = fluffCutter(word_list)
+
     #myword = word_list[0]  # test purposes only. Will change to fit fluff cutter
-    text.delete('1.0', END)
+    #text.delete('1.0', END)
     # for i, word in enumerate(word_list):
     #     if word[:len(myword)] == myword:
     #         color_text(text, tags[i], word, 'black', 'yellow')
     #     else:
     #         color_text(text, tags[i], word)
+    '''
     for i, word in enumerate(selected):
         color_text(text, tags[i], word, 'black', 'yellow')
-
+    '''
 
 def color_text(edit, tag, word, fg_color='black', bg_color='white'):
     word = word + ' '

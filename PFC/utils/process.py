@@ -1,16 +1,10 @@
 from nltk.tokenize import word_tokenize
-
+from nltk.sentiment import sentiment_analyzer
 
 
 def fluffCutter(tokenized):
     try:
-        words = []
-        for i in tokenized:
-
-            words = word_tokenize(i)
-            # tagged = nltk.pos_tag(words)
-            # namedEnt = nltk.ne_chunk(tagged, binary=True)
-            # namedEnt.draw()
-        return words
+        s = sentiment_analyzer(tokenized)
+        print(s)
     except Exception as ex:
         print(str(ex))
