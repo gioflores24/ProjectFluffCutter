@@ -1,8 +1,9 @@
-
 from tkinter import filedialog, END, messagebox, Tk, Text, Menu
 from utils.process import fluff_cutter
+
 f = None  # this will change
 from utils.preprocess import get_text
+
 
 def new_file():
     global f
@@ -30,9 +31,9 @@ def save_as():
 
 def open_file():
     file = filedialog.askopenfilename()
-    #t = file.read()
+    # t = file.read()
     t = get_text(file)
-    #print(t)
+    # print(t)
     text.delete(0.0, END)
     text.insert(0.0, t)
 
@@ -43,7 +44,7 @@ def highlight():
     tags = ['tg' + str(k) for k in range(len(word_list))]
 
     selected = fluff_cutter(word_list)
-    text.delete('1.0', END)
+    #text.delete('1.0', END)
     # for i, word in enumerate(word_list):
     #     if word[:len(myword)] == myword:
     #         color_text(text, tags[i], word, 'black', 'yellow')
@@ -56,22 +57,17 @@ def highlight():
     #     text.insert(END, ' ' + i)
     print(word_list)
     print(selected)
-    # for i, word in enumerate(word_list):
-    #     cur_word = selected[i]
-    #     if word_list[i] == cur_word:
-    #         color_text(text, tags[i], word, 'black', 'yellow')
-    #     else:
-    #         color_text(text, tags[i], word)
     j = 0
-    for i, word in enumerate(selected):
+    for i, word in enumerate(word_list):
 
-        cur_word = selected[i]
-        if cur_word == word_list[j]:
+        if selected[j] == word_list[i]:
             #color_text(text, tags[i], word, 'black', 'yellow')
-            print(cur_word + " is equal")
-        else:
-            print(word_list[j])
             j += 1
+        
+
+
+
+
 
 
 def color_text(edit, tag, word, fg_color='black', bg_color='white'):
