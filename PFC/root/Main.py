@@ -42,9 +42,7 @@ def highlight():
     tags = ['tg' + str(k) for k in range(len(word_list))]
 
     selected = fluff_cutter(word_list)
-    print(selected[0])
-    #myword = word_list[0]  # test purposes only. Will change to fit fluff cutter
-    #text.delete('1.0', END)
+    text.delete('1.0', END)
     # for i, word in enumerate(word_list):
     #     if word[:len(myword)] == myword:
     #         color_text(text, tags[i], word, 'black', 'yellow')
@@ -53,12 +51,16 @@ def highlight():
 
     # for i, word in enumerate(selected):
     #     color_text(text, tags[i], word, 'black', 'yellow')
-    for i in selected:
-        text.insert(END, ' ' + i)
-    for i, j, word in enumerate(word_list):
-        cur_word = selected[j]
-        if word_list[i] == cur_word:
-            color_text(text, tags[i], word, 'black', 'yellow')
+    # for i in selected:
+    #     text.insert(END, ' ' + i)
+    print(word_list)
+    print(selected)
+    # for i, word in enumerate(word_list):
+    #     cur_word = selected[i]
+    #     if word_list[i] == cur_word:
+    #         color_text(text, tags[i], word, 'black', 'yellow')
+    #     else:
+    #         color_text(text, tags[i], word)
 
 
 
