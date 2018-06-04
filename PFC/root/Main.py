@@ -1,16 +1,16 @@
 
 from tkinter import filedialog, END, messagebox, Tk, Text, Menu
-from utils.process import fluffCutter
+from utils.process import fluff_cutter
 f = None  # this will change
-from utils.preprocess import getText
+from utils.preprocess import get_text
 
-def newFile():
+def new_file():
     global f
     f = "Untitled"
     text.delete(0.0, END)
 
 
-def saveFile():
+def save_file():
     global f
     t = text.get(0.0, END)  # stores all text to text box
     # opens and stores file as if you're hitting save
@@ -19,7 +19,7 @@ def saveFile():
     file.close()
 
 
-def saveAs():
+def save_as():
     file = filedialog.asksaveasfile(mode='w', defaultextension='.docx')
     t = text.get(0.0, END)
     try:
@@ -28,10 +28,10 @@ def saveAs():
         messagebox.showerror(title='Oops!', message='Unable to save file...')
 
 
-def openFile():
+def open_file():
     file = filedialog.askopenfilename()
     #t = file.read()
-    t = getText(file)
+    t = get_text(file)
     #print(t)
     text.delete(0.0, END)
     text.insert(0.0, t)
@@ -40,8 +40,9 @@ def openFile():
 def highlight():
     word_list = text.get('1.0', END).split()
     tags = ['tg' + str(k) for k in range(len(word_list))]
-    selected = fluffCutter(word_list)
 
+    selected = fluff_cutter(word_list)
+    print(selected[0])
     #myword = word_list[0]  # test purposes only. Will change to fit fluff cutter
     #text.delete('1.0', END)
     # for i, word in enumerate(word_list):
@@ -49,10 +50,17 @@ def highlight():
     #         color_text(text, tags[i], word, 'black', 'yellow')
     #     else:
     #         color_text(text, tags[i], word)
-    '''
-    for i, word in enumerate(selected):
-        color_text(text, tags[i], word, 'black', 'yellow')
-    '''
+
+    # for i, word in enumerate(selected):
+    #     color_text(text, tags[i], word, 'black', 'yellow')
+    for i in selected:
+        text.insert(END, ' ' + i)
+    for i, j, word in enumerate(word_list):
+        cur_word = selected[j]
+        if word_list[i] == cur_word:
+            color_text(text, tags[i], word, 'black', 'yellow')
+
+
 
 def color_text(edit, tag, word, fg_color='black', bg_color='white'):
     word = word + ' '
@@ -64,7 +72,7 @@ def color_text(edit, tag, word, fg_color='black', bg_color='white'):
 
 
 root = Tk()
-root.title("My Python Text Editor")
+root.title("Fluff Cutter")
 root.minsize(width=400, height=400)
 root.maxsize(width=400, height=600)
 
@@ -73,14 +81,14 @@ text.pack()
 
 menubar = Menu(root)
 filemenu = Menu(menubar)
-filemenu.add_command(label="New", command=newFile)
-filemenu.add_command(label="Open", command=openFile)
-filemenu.add_command(label="Save", command=saveFile)
-filemenu.add_command(label="Save As...", command=saveAs)
+filemenu.add_command(label="New", command=new_file)
+filemenu.add_command(label="Open", command=open_file)
+filemenu.add_command(label="Save", command=save_file)
+filemenu.add_command(label="Save As...", command=save_as)
 filemenu.add_separator()
 filemenu.add_command(label="Quit", command=root.quit)
 editmenu = Menu(menubar)
-editmenu.add_command(label="Highlight", command=highlight)
+editmenu.add_command(label="Cut The Fluff", command=highlight)
 menubar.add_cascade(label="File", menu=filemenu)
 menubar.add_cascade(label="Edit", menu=editmenu)
 

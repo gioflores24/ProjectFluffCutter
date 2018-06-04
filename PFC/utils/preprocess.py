@@ -1,6 +1,6 @@
 from docx import Document
 
-def getText(filename):
+def get_text(filename):
     doc = Document(filename)
     fullText = []
     for para in doc.paragraphs:
