@@ -39,6 +39,7 @@ def open_file():
 
 def highlight():
     word_list = text.get('1.0', END).split()
+
     tags = ['tg' + str(k) for k in range(len(word_list))]
 
     selected = fluff_cutter(word_list)
@@ -61,7 +62,16 @@ def highlight():
     #         color_text(text, tags[i], word, 'black', 'yellow')
     #     else:
     #         color_text(text, tags[i], word)
+    j = 0
+    for i, word in enumerate(selected):
 
+        cur_word = selected[i]
+        if cur_word == word_list[j]:
+            #color_text(text, tags[i], word, 'black', 'yellow')
+            print(cur_word + " is equal")
+        else:
+            print(word_list[j])
+            j += 1
 
 
 def color_text(edit, tag, word, fg_color='black', bg_color='white'):
