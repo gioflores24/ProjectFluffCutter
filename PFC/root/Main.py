@@ -59,10 +59,12 @@ def highlight():
     print(selected)
     j = 0
     for i, word in enumerate(word_list):
-
         if selected[j] == word_list[i]:
             #color_text(text, tags[i], word, 'black', 'yellow')
+            print(selected[j] + " is equal")
             j += 1
+        
+
         
 
 
