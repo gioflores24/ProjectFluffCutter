@@ -61,7 +61,6 @@ def highlight():
     i = 0
     for _ in enumerate(word_list):
         if selected[i] == word_list[j]:  # highlight
-
             color_text(text, tags[i], selected[i], 'black', 'yellow')
             i += 1
 
