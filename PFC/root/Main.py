@@ -57,7 +57,6 @@ def highlight():
     #     text.insert(END, ' ' + i)
     print(word_list)
     print(selected)
-    j = 0
     i = 0
     # for _ in enumerate(word_list):
     #     if selected[i] == word_list[j]:  # highlight
