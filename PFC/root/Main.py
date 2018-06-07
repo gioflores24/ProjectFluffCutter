@@ -45,28 +45,7 @@ def highlight():
 
     selected = fluff_cutter(word_list)
     text.delete('1.0', END)
-    # for i, word in enumerate(word_list):
-    #     if word[:len(myword)] == myword:
-    #         color_text(text, tags[i], word, 'black', 'yellow')
-    #     else:
-    #         color_text(text, tags[i], word)
-
-    # for i, word in enumerate(selected):
-    #     color_text(text, tags[i], word, 'black', 'yellow')
-    # for i in selected:
-    #     text.insert(END, ' ' + i)
-    print(word_list)
-    print(selected)
     i = 0
-    # for _ in enumerate(word_list):
-    #     if selected[i] == word_list[j]:  # highlight
-    #         color_text(text, tags[i], selected[i], 'black', 'yellow')
-    #         i += 1
-    #
-    #     else:  # don't highlight
-    #         color_text(text, tags[j], word_list[j])
-    #         print(word_list[j])
-    #     j += 1
     for ix, word in enumerate(word_list):
         myword = selected[i]
         if word[:len(myword)] == myword:
@@ -74,8 +53,6 @@ def highlight():
             i += 1
         else:
             color_text(text, tags[ix], word)
-
-
 
 
 def color_text(edit, tag, word, fg_color='black', bg_color='white'):
