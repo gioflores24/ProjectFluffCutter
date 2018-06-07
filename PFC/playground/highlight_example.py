@@ -17,22 +17,24 @@ def main():
     edit = tk.Text(root)
     edit.pack()
 
-    text = "Up the hill went Jack and Jill"
+    text = "give me the money"
 
     word_list = text.split()
 
-    print(word_list)
+    #print(word_list)
 
-    myword = 'Jack'
-    myword2 = 'Jill'
+    myword = 'give'
+    myword2 = 'the'
 
     tags = ["tg" + str(k) for k in range(len(word_list))]
     for ix, word in enumerate(word_list):
         if word[:len(myword)] == myword:
-            color_text(edit, tags[ix], word, 'blue')
+            color_text(edit, tags[ix], word, 'black', 'yellow')
         elif word[:len(myword2)] == myword2:
             color_text(edit, tags[ix], word, 'black', 'yellow')
         else:
             color_text(edit, tags[ix], word)
 
     root.mainloop()
+
+main()

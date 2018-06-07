@@ -59,15 +59,24 @@ def highlight():
     print(selected)
     j = 0
     i = 0
-    for _ in enumerate(word_list):
-        if selected[i] == word_list[j]:  # highlight
-            color_text(text, tags[i], selected[i], 'black', 'yellow')
+    # for _ in enumerate(word_list):
+    #     if selected[i] == word_list[j]:  # highlight
+    #         color_text(text, tags[i], selected[i], 'black', 'yellow')
+    #         i += 1
+    #
+    #     else:  # don't highlight
+    #         color_text(text, tags[j], word_list[j])
+    #         print(word_list[j])
+    #     j += 1
+    for ix, word in enumerate(word_list):
+        myword = selected[i]
+        if word[:len(myword)] == myword:
+            color_text(text, tags[ix], word, 'black', 'yellow')
             i += 1
+        else:
+            color_text(text, tags[ix], word)
 
-        else:  # don't highlight
-            color_text(text, tags[j], word_list[j])
-            print(word_list[j])
-        j += 1
+
 
 
 def color_text(edit, tag, word, fg_color='black', bg_color='white'):
