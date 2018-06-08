@@ -1,5 +1,7 @@
 from docx import Document
 from nltk.corpus import stopwords
+from nltk.text import Text
+from nltk.tokenize import word_tokenize
 
 
 def get_text(filename):
@@ -25,3 +27,18 @@ def filter_stopwords(text):
         if word not in sw:
             filtered.append(word)
     return filtered
+
+def convertToText(text):
+    word_list = word_tokenize(text)
+    textObj = Text(word_list)
+    return textObj
+
+def count_occurrences(text):
+    word_list = word_tokenize(text)
+    word_occurrence = {}
+    for word in word_list:
+        # print(word)
+        word_occurrence[word] = (convertToText(word_list).count(word))
+    return word_occurrence
+
+
