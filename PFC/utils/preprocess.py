@@ -28,17 +28,23 @@ def filter_stopwords(text):
             filtered.append(word)
     return filtered
 
-def convertToText(text):
-    word_list = word_tokenize(text)
-    textObj = Text(word_list)
-    return textObj
+def convertToText(_input):
+    if type(_input) is list:
+        textObj = Text(_input)
+        return textObj
+    else:
+        list1 = word_tokenize(_input)
+        textObj = Text(list1)
+        return textObj
 
-def count_occurrences(text):
-    word_list = word_tokenize(text)
+
+
+def count_occurrences(word_list):
+    print("Before counting: " + word_list)
     word_occurrence = {}
+    textWidget = convertToText(word_list)
     for word in word_list:
-        # print(word)
-        word_occurrence[word] = (convertToText(word_list).count(word))
+        word_occurrence[word] = textWidget.count(word)
     return word_occurrence
 
 
