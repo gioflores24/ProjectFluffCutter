@@ -2,6 +2,7 @@ from docx import Document
 from nltk.corpus import stopwords
 from nltk.text import Text
 from nltk.tokenize import word_tokenize
+import re
 
 
 def get_text(filename):
@@ -15,10 +16,12 @@ def get_text(filename):
 def percentage(count, total):
     return 100 * count / total;
 
+
 def lexical_diversity(text):
     return len(set(text)) / len(text)
 
-#remember to use dispersion plots for graphing
+
+# remember to use dispersion plots for graphing
 
 def filter_stopwords(text):
     sw = set(stopwords.words('english'))  # saves English stopwords for future use
@@ -27,6 +30,7 @@ def filter_stopwords(text):
         if word not in sw:
             filtered.append(word)
     return filtered
+
 
 def convertToText(_input):
     if type(_input) is list:
@@ -38,9 +42,7 @@ def convertToText(_input):
         return textObj
 
 
-
 def count_occurrences(word_list):
-    print("Before counting: " + word_list)
     word_occurrence = {}
     textWidget = convertToText(word_list)
     for word in word_list:
@@ -48,3 +50,9 @@ def count_occurrences(word_list):
     return word_occurrence
 
 
+def remove_punctuation(_input):
+    if _input is str:
+        _input = re.sub(r'[^\w\s]', '', _input)
+    elif _input is list:
+        _input = ''.join(_input).re.sub(r'[^\w\s]', '', _input)
+    return _input

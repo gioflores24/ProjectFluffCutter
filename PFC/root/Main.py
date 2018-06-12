@@ -1,10 +1,9 @@
 from tkinter import filedialog, END, messagebox, Tk, Text, Menu
 from utils.process import fluff_cutter
-
-f = None  # this will change
+from nltk.tokenize import word_tokenize
 from utils.preprocess import get_text
 
-
+f = None  # this will change
 def new_file():
     global f
     f = "Untitled"
@@ -31,28 +30,32 @@ def save_as():
 
 def open_file():
     file = filedialog.askopenfilename()
-    # t = file.read()
     t = get_text(file)
-    # print(t)
     text.delete(0.0, END)
     text.insert(0.0, t)
 
 
 def highlight():
-    word_list = text.get('1.0', END).split()
-
+    word_list = text.get('1.0', END).split() #used to extract text from editor
+    word_list = word_tokenize(' '.join(word_list))
     tags = ['tag' + str(i) for i in range(len(word_list))]
-
+    print(word_list)
     selected = fluff_cutter(word_list)
+    print(selected)
     text.delete('1.0', END)
     i = 0
     for ix, word in enumerate(word_list):
-        myword = selected[i]
-        if word[:len(myword)] == myword:
-            color_text(text, tags[ix], word, 'black', 'yellow')
-            i += 1
-        else:
+        try:
+            current = selected[i]
+            if word[:len(current)] == current:
+                color_text(text, tags[ix], word, 'black', 'yellow')
+                i += 1
+            else:
+                color_text(text, tags[ix], word)
+        except IndexError:
             color_text(text, tags[ix], word)
+
+
 
 
 def color_text(edit, tag, word, fg_color='black', bg_color='white'):
@@ -81,7 +84,7 @@ filemenu.add_command(label="Save As...", command=save_as)
 filemenu.add_separator()
 filemenu.add_command(label="Quit", command=root.quit)
 editmenu = Menu(menubar)
-editmenu.add_command(label="Cut The Fluff", command=highlight)
+editmenu.add_command(label="Highlight Redundancies", command=highlight)
 menubar.add_cascade(label="File", menu=filemenu)
 menubar.add_cascade(label="Edit", menu=editmenu)
 

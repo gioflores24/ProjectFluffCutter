@@ -1,4 +1,3 @@
-
 from nltk.tokenize import word_tokenize
 from nltk.draw.dispersion import dispersion_plot
 from matplotlib import *
@@ -7,21 +6,24 @@ from nltk.probability import FreqDist
 from nltk.corpus import wordnet
 from utils.preprocess import convertToText
 from utils.preprocess import count_occurrences
-
+from utils.preprocess import remove_punctuation
+from nltk.tokenize import RegexpTokenizer
+import re
 
 import collections
 
 highlighted = []
-text = "Not giving the poor food is very bad. It's bad because they starve. If they starve, everyone is guilty"
+text = "Not giving the poor food is very bad. It's bad because they starve. If they starve, everyone is guilty."
 
-
-word_list = word_tokenize(text)
-counts = count_occurrences(word_list)
-for key, value in counts.items():
-    if value >= 2:
-        highlighted.append(key)
-
-print(len(highlighted))
-
+# word_list = word_tokenize(text)
+# print(word_list)
+#
+#
+# counts = count_occurrences(word_list)
+# for key, value in counts.items():
+#     if value >= 2:
+#         highlighted.append(key)
+#
+# print(highlighted)
 
 
