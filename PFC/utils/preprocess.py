@@ -1,5 +1,5 @@
 from docx import Document
-from nltk.corpus import stopwords
+from nltk.corpus import stopwords, wordnet
 from nltk.text import Text
 from nltk.tokenize import word_tokenize
 import re
@@ -56,3 +56,12 @@ def remove_punctuation(_input):
     elif _input is list:
         _input = ''.join(_input).re.sub(r'[^\w\s]', '', _input)
     return _input
+
+
+def extract_synonyms(word, sentence):
+    syns = []
+    for s in wordnet.synsets(word):
+        for l in s.lemma_names():
+            if l in sentence and l != word:
+                syns.append(l)
+    return syns
