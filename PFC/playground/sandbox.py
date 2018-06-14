@@ -4,7 +4,7 @@ from matplotlib import *
 from numpy import *
 from nltk.probability import FreqDist
 from nltk.corpus import wordnet
-from utils.preprocess import convertToText
+from utils.preprocess import convert_to_text
 from utils.preprocess import count_occurrences
 from utils.preprocess import remove_punctuation
 from nltk.tokenize import RegexpTokenizer
