@@ -8,8 +8,6 @@ from utils.preprocess import filter_stopwords
 from utils.preprocess import count_occurrences
 
 
-
-
 def fluff_cutter(word_list):
     try:
         bySentence = sent_tokenize(' '.join(word_list))
@@ -19,7 +17,6 @@ def fluff_cutter(word_list):
         for key, value in counts.items():
             if value >= 2:
                 highlighted.append(key)
-
 
         return highlighted
 

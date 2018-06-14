@@ -27,10 +27,12 @@ text = "Not giving the poor food is very bad. It's bad because they starve. If t
 # print(highlighted)
 
 
-num_of_sentences = sent_tokenize(text)
+list_of_sentences = sent_tokenize(text)
 
-if len(num_of_sentences) > 2:
-    for i in range(len(num_of_sentences) - 1):
-        sent1 = num_of_sentences[i+1]
-        sent2 = num_of_sentences[i]
+# if len(list_of_sentences) > 2:
+#     for i in range(len(list_of_sentences) - 1):
+#         sent1 = list_of_sentences[i+1]
+#         sent2 = list_of_sentences[i]
+
+
 

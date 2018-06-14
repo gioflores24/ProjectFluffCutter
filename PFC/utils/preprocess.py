@@ -94,3 +94,17 @@ def cosine_similarity(sentence1, sentence2):
     v2 = convert_text_to_vec(sentence2)
     cos = calc_cos(v1, v2)
     return cos
+
+
+def sent_intersection(sent1, sent2):
+    intersecting_words = set.intersection(set(sent1.split(' ')), sent2.split(' '))
+    return len(intersecting_words)
+
+def most_similar_words(sent_list):
+    for sentence in sent_list:
+        for sentence2 in sent_list:
+                
+
+            
+
+
