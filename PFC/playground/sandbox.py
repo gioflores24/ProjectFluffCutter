@@ -33,4 +33,6 @@ if len(num_of_sentences) > 2:
     for i in range(len(num_of_sentences) - 1):
         sent1 = num_of_sentences[i+1]
         sent2 = num_of_sentences[i]
+        for word in sent1:
+            
 

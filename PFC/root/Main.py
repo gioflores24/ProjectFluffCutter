@@ -4,6 +4,8 @@ from nltk.tokenize import word_tokenize
 from utils.preprocess import get_text
 
 f = None  # this will change
+
+
 def new_file():
     global f
     f = "Untitled"
