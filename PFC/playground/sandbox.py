@@ -4,7 +4,7 @@ from matplotlib import *
 from numpy import *
 from nltk.probability import FreqDist
 from nltk.corpus import wordnet
-from utils.preprocess import convertToText
+from utils.preprocess import convert_to_text
 from utils.preprocess import count_occurrences
 from utils.preprocess import remove_punctuation
 from nltk.tokenize import RegexpTokenizer
@@ -27,12 +27,21 @@ text = "Not giving the poor food is very bad. It's bad because they starve. If t
 # print(highlighted)
 
 
-num_of_sentences = sent_tokenize(text)
+list_of_sentences = sent_tokenize(text)
 
+# if len(list_of_sentences) > 2:
+#     for i in range(len(list_of_sentences) - 1):
+#         sent1 = list_of_sentences[i+1]
+#         sent2 = list_of_sentences[i]
+
+
+<<<<<<< HEAD
 if len(num_of_sentences) > 2:
     for i in range(len(num_of_sentences) - 1):
         sent1 = num_of_sentences[i+1]
         sent2 = num_of_sentences[i]
         for word in sent1:
             
+=======
+>>>>>>> f92663edb9e86d6fb52e08858f089bc9842c8f71
 
