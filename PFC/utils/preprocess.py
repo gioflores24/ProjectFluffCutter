@@ -100,11 +100,9 @@ def sent_intersection(sent1, sent2):
     intersecting_words = set.intersection(set(sent1.split(' ')), sent2.split(' '))
     return len(intersecting_words)
 
-def most_similar_words(sent_list):
-    for sentence in sent_list:
-        for sentence2 in sent_list:
+# def most_similar_words(sent_list):
+#     for sentence in sent_list:
+#         for sentence2 in sent_list:
                 
-
-            
 
 
